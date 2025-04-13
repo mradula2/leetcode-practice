@@ -22,6 +22,7 @@ class heap {
             } else {
                 return;
             }
+        }
     }
 
     void deletefromHeap() {
@@ -47,10 +48,51 @@ class heap {
         }
     }
 
-    void heapify();
 
-    void heapSort();
 
+
+}
+
+
+void heapify(vector<int> &array, int n, int index) {
+    int largest = index;
+
+    int leftIndex = 2 * index;
+    int rightIndex = 2 * index + 1;
+
+    if (leftIndex < n && array.at(largest) < array.at(leftIndex)) {
+        largest = leftIndex;
+    }
+    if (rightIndex < n && array.at(largest) < array.at(rightIndex)) {
+        largest = rightIndex;
+    }
+    if (largest != index) {
+        swap(array[largest], array[index]);
+        heapify(array, n, largest);
+    }
+
+}
+
+vector<int> buildMaxHeap(vector<int> &arr) {
+    int n = arr.size();
+
+    for(int i = n/2; i > 0; i--) {
+        heapify(arr, n, i);
+    }
+
+    return arr;
+}
+
+
+
+void heapSort(vector<int> &arr, int n>) {
+    int size = n;
+
+    while(size > 1) {
+        swap(arr[size], arr[1]);
+        size--;
+
+        heapify(arr, size, 1);
     }
 }
 
