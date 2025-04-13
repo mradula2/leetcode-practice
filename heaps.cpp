@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 
 class heap {
 
@@ -98,6 +99,37 @@ void heapSort(vector<int> &arr, int n>) {
 
 
 int main() {
+
+    //max heap
+    priority_queue<int> pq;
+
+
+    pq.push(6);
+    pq.push(7);
+    pq.push(8);
+    pq.push(2);
+    pq.push(3);
+
+    cout << "Element at the top: " << pq.top() << endl;
+
+    pq.pop();
+
+    cout << "Element at the top: " << pq.top() << endl;
+
+    //min heap
+    priority_queue<int, vector<int>, greater<int>> minHeap;
+
+    minHeap.push(6);
+    minHeap.push(7);
+    minHeap.push(8);
+    minHeap.push(2);
+    minHeap.push(3);
+
+    cout << "Element at the top: " << minHeap.top() << endl;
+
+    minHeap.pop();
+
+    cout << "Element at the top: " << minHeap.top() << endl;
 
     return 0;
 }
